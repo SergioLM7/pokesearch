@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import Card from './Card'
+import Card from './Card';
+import { v4 as uuidv4 } from 'uuid';;
+import errorImage from '../../../../assets/404pokemon.jpg';
 
-const ListPokemon = () => {
-  const [pokemonList, setPokemonList] = useState([]); // Para guardar los pokemon 
-  const [pokemonToSearch, setPokemonToSearch] = useState(null); //Para almacenar el pokemon a buscar
+const ListPokemon = ({pokemonToSearch, pokemonList, setPokemonList}) => {
+  const [pokemonSearched, setPokemonSearched] = useState([]); //Para guardar los pokemon buscados 
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -41,53 +42,77 @@ const ListPokemon = () => {
     fetchPokemon();
   }, []);
 
+  //Renderizado de los pokemon que están pokemonList 
   const renderPokemons = () =>
     pokemonList.map((item, i) => (
       <Card
-        key={i}
+        key={item.id}
         pokemonName={item.name}
         pokemonID={item.id}
         img={item.sprites.other.dream_world.front_default}
       />
     ));
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const searchValue = e.target.pokemon.value.trim();
-    if (searchValue) {
-      setPokemonToSearch(searchValue);
-    }
-    e.target.pokemon.value = '';
-  };
+    //Renderizado de los pokemon que están setPokemonSearched 
+  /*const renderPokemonSearched = () =>
+    pokemonSearched.map((item, i) => (
+      <Card
+        key={uuidv4()}
+        pokemonName={item.name}
+        pokemonID={item.id}
+        img={item.sprites.other.dream_world.front_default}
+      />
+    ));*/
 
   //UseEffect para buscar el pokemon del input
   useEffect(() => {
     if (pokemonToSearch) {
+
+      const pokemonInArray = pokemonSearched.find((input) => input.name === pokemonToSearch);
+      console.log(pokemonInArray)
+
+      if (pokemonInArray) {
+        setPokemonList([pokemonInArray])
+      } else {
       const searchPokemon = async () => {
         try {
           const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonToSearch}`);
           const pokemonData = res.data;
           console.log(pokemonData);
           setPokemonList([pokemonData]);
+
+         if (pokemonSearched.length === 0) {
+            setPokemonSearched([pokemonData]);
+            console.log(pokemonSearched);
+
+          } else {
+            setPokemonSearched([...pokemonSearched, pokemonData]);
+            console.log(pokemonSearched);
+          }
+          
         } catch (e) {
           console.error('Error fetching that pokemon', e);
-          setPokemonList([]);
+          setPokemonList([{
+            id: 404,
+            name: 'Error 404',
+            sprites: {
+              other: {
+                dream_world: {
+                  front_default: errorImage
+                }
+              }
+            }
+          }]);
         }
       }
       searchPokemon();
     };
+  }
   }, [pokemonToSearch]);
 
-  return <section className="pokemon-list">
-    <form onSubmit={handleSubmit} className="form">
-      <label htmlFor="pokemon">Search by pokemon's name:</label>
-      <input name="pokemon" id="pokemon" />
-    </form>
-    <h2>All Pokemons</h2>
-    <section className="pokemon-cards">
+  return <article className="pokemon-cards">
       {renderPokemons()}
-    </section>
-  </section>;
+    </article>;
 };
 
 export default ListPokemon;

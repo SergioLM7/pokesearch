@@ -9,7 +9,7 @@ const Card = ({
 
   return <article className="card" id={pokemonName}>
     <h3>Name: {goodName}</h3>
-    <p>ID: {pokemonID}</p>
+    <p>ID: #{pokemonID}</p>
     <img src={img} alt={pokemonName} className="picture_item" />
   </article>
 };
