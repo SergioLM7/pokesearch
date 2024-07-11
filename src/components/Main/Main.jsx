@@ -5,9 +5,8 @@ import New from "./New";
 import Details from "./Details/Details";
 
 
-
 const Main = () => {
-  return <main>
+  return <><main className="container">
     <p>Esto es el MAIN</p>
     <Routes>
       <Route path='/' element={<Home />} />
@@ -16,6 +15,7 @@ const Main = () => {
       <Route path='/*' element={<Navigate to={'/'} />} />
     </Routes>
     </main>;
+    </>
 };
 
 export default Main;

@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { useLocation, useParams } from 'react-router-dom';
 
 
@@ -27,33 +27,33 @@ const Details = () => {
     return <p>Invalid Pokemon details</p>;
   }
 
-  return (
-   <Card shadow="sm" className={`${typeOne}`} isPressable onPress={() => console.log("item pressed")}>
-          <CardBody className="overflow-visible p-0">
-            <Image
-              shadow="sm"
-              radius="lg"
-              width="200"
-              height="200"
-              alt={name}
-              className="w-full object-cover h-[140px]"
-              src={image}
-            />
-          </CardBody>
-          <CardFooter className="text-small justify-between">
-            <b>{name}</b>
-            <p className="text-default-500">#{id}</p>
-            <p className="text-default-500">{height/10}m</p>
-            <p className="text-default-500">{weight/10}kg</p>
-            <p>{statsNames[0]}</p><progress value={statsValues[0]} max={255} />
-            <p>{statsNames[1]}</p><progress value={statsValues[1]} max={255} />
-            <p>{statsNames[2]}</p><progress value={statsValues[2]} max={255} />
-            <p>{statsNames[3]}</p><progress value={statsValues[3]} max={255} />
-            <p>{statsNames[4]}</p><progress value={statsValues[4]} max={255} />
-            <p>{statsNames[5]}</p><progress value={statsValues[5]} max={255} />
-          </CardFooter>
-        </Card>
-      );
+  return (<><article className="pokemon-detail">
+    <Card shadow="sm" className={`${typeOne} card-detail`} isPressable onPress={() => console.log("item pressed")}>
+      <CardBody className="overflow-visible p-0">
+        <Image
+          shadow="sm"
+          radius="lg"
+          width="200"
+          height="200"
+          alt={name}
+          className="w-full object-cover h-[140px]"
+          src={image}
+        />
+      </CardBody>
+      <CardFooter className="text-small justify-between">
+        <b>{name}</b>
+        <p className="text-default-500 pokemon-data">#{id}</p>
+        <p className="text-default-500 pokemon-data">{height / 10}m</p>
+        <p className="text-default-500 pokemon-data">{weight / 10}kg</p>
+        <p className="pokemon-data">{statsNames[0]}</p><progress value={statsValues[0]} max={255} />
+        <p className="pokemon-data">{statsNames[1]}</p><progress value={statsValues[1]} max={255} />
+        <p className="pokemon-data">{statsNames[2]}</p><progress value={statsValues[2]} max={255} />
+        <p className="pokemon-data">{statsNames[3]}</p><progress value={statsValues[3]} max={255} />
+        <p className="pokemon-data">{statsNames[4]}</p><progress value={statsValues[4]} max={255} />
+        <p className="pokemon-data">{statsNames[5]}</p><progress value={statsValues[5]} max={255} />
+      </CardFooter>
+    </Card>
+  </article></>);
 };
 
 export default Details;

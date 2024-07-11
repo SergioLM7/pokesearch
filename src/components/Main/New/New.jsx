@@ -1,4 +1,4 @@
-import React, {useRef, useContext} from "react";
+import React, { useRef, useContext } from "react";
 import { useForm } from "react-hook-form"
 import { PokemonSearched } from '../../../context/PokemonSearched';
 import { PokemonList } from '../../../context/PokemonList';
@@ -22,8 +22,8 @@ const New = () => {
   } = useForm();
 
   // your form submit function which will invoke after successful validation
-  const onSubmit = ({id, img, name, weight, height, typeOne, typeTwo}) => {
-  const newPokemon = {
+  const onSubmit = ({ id, img, name, weight, height, typeOne, typeTwo }) => {
+    const newPokemon = {
       id: id,
       name: name,
       weight: weight,
@@ -36,54 +36,54 @@ const New = () => {
         }
       },
       stats: [{
-    base_stat: 58,
-    effort: 0,
-    stat: {
-      name: "hp",
-      url: "https://pokeapi.co/api/v2/stat/1/"
-    }
-  },
-  {
-    base_stat: 64,
-    effort: 0,
-    stat: {
-      name: "attack",
-      url: "https://pokeapi.co/api/v2/stat/2/"
-    }
-  },
-  {
-    base_stat: 58,
-    effort: 0,
-    stat: {
-      name: "defense",
-      url: "https://pokeapi.co/api/v2/stat/3/"
-    }
-  },
-  {
-    base_stat: 80,
-    effort: 1,
-    stat: {
-      name: "special-attack",
-      url: "https://pokeapi.co/api/v2/stat/4/"
-    }
-  },
-  {
-    base_stat: 65,
-    effort: 0,
-    stat: {
-      name: "special-defense",
-      url: "https://pokeapi.co/api/v2/stat/5/"
-    }
-  },
-  {
-    base_stat: 80,
-    effort: 1,
-    stat: {
-      name: "speed",
-      url: "https://pokeapi.co/api/v2/stat/6/"
-    }
-  }],
-      types:[{type:{name:typeOne}},{type:{name:typeTwo}}]
+        base_stat: 58,
+        effort: 0,
+        stat: {
+          name: "hp",
+          url: "https://pokeapi.co/api/v2/stat/1/"
+        }
+      },
+      {
+        base_stat: 64,
+        effort: 0,
+        stat: {
+          name: "attack",
+          url: "https://pokeapi.co/api/v2/stat/2/"
+        }
+      },
+      {
+        base_stat: 58,
+        effort: 0,
+        stat: {
+          name: "defense",
+          url: "https://pokeapi.co/api/v2/stat/3/"
+        }
+      },
+      {
+        base_stat: 80,
+        effort: 1,
+        stat: {
+          name: "special-attack",
+          url: "https://pokeapi.co/api/v2/stat/4/"
+        }
+      },
+      {
+        base_stat: 65,
+        effort: 0,
+        stat: {
+          name: "special-defense",
+          url: "https://pokeapi.co/api/v2/stat/5/"
+        }
+      },
+      {
+        base_stat: 80,
+        effort: 1,
+        stat: {
+          name: "speed",
+          url: "https://pokeapi.co/api/v2/stat/6/"
+        }
+      }],
+      types: [{ type: { name: typeOne } }, { type: { name: typeTwo } }]
     }
     console.log(newPokemon)
     updatePokemonSearched([...pokemonSearched, newPokemon]);
@@ -91,14 +91,14 @@ const New = () => {
     updatePokemonList(pokemonSearched)
     formRef.current.reset();
   };
-  
+
   console.log(watch("typeOne")); // you can watch individual input by pass the name of the input
 
-   // Watch the values of typeOne and typeTwo
-   const typeOne = watch("typeOne");
-   const typeTwo = watch("typeTwo");
+  // Watch the values of typeOne and typeTwo
+  const typeOne = watch("typeOne");
+  const typeTwo = watch("typeTwo");
 
-    //Renderizado de los pokemon que están setPokemonSearched 
+  //Renderizado de los pokemon que están setPokemonSearched 
   const renderPokemonSearched = () =>
     pokemonSearched.map((item, i) => (
       <Card
@@ -106,7 +106,7 @@ const New = () => {
         pokemonName={item.name}
         pokemonID={item.id}
         img={item.sprites.other.home.front_default}
-        types = {item.types}
+        types={item.types}
         pokemonData={item}
       />
     ));
@@ -115,14 +115,16 @@ const New = () => {
     <Link to={`/`}><button>Back Home</button></Link>
     <form onSubmit={handleSubmit(onSubmit)} ref={formRef} className="form">
       <label>ID</label>
-      <input {...register("id", { min: 1303, required: true})} />
+      <input {...register("id", { min: 1303, required: true })} />
       {errors?.id?.type === "required" && <p>This field is required</p>}
       {errors.id && (
         <p>Pokemon ID must be greater than 1302</p>
       )}
       <label>Name</label>
-      <input {...register("name", { required: true, minLegth: 3,
-          maxLength: 20, pattern: /^[A-Za-z]+$/i })} />
+      <input {...register("name", {
+        required: true, minLegth: 3,
+        maxLength: 20, pattern: /^[A-Za-z]+$/i
+      })} />
       {errors?.name?.type === "required" && <p>This field is required</p>}
       {errors?.name?.type === "pattern" && (
         <p>Alphabetical characters only</p>
@@ -134,13 +136,13 @@ const New = () => {
         <p>Pokemon name cannot be less than 3 characters</p>
       )}
       <label>Weight(kg)</label>
-      <input {...register("weight", { min: 1, required: true})} />
+      <input {...register("weight", { min: 1, required: true })} />
       {errors?.weight?.type === "required" && <p>This field is required</p>}
       {errors.id && (
         <p>Pokemon weight must be greater than 1kg</p>
       )}
       <label>Height(m)</label>
-      <input {...register("height", { required: true})} />
+      <input {...register("height", { required: true })} />
       {errors?.height?.type === "required" && <p>This field is required</p>}
       <label>Image</label>
       <input {...register("img", { required: true, pattern: /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/i })} />
@@ -149,7 +151,7 @@ const New = () => {
         <p>Image must be a valid url. </p>
       )}
       <label>Type one</label>
-      <select {...register("typeOne", { required: true})}>
+      <select {...register("typeOne", { required: true })}>
         <option value="">--Selecciona--</option>
         <option value="normal">Normal</option>
         <option value="fire">Fire</option>
@@ -199,9 +201,9 @@ const New = () => {
       <input type="submit" />
     </form>
     <section className="pokemons-searched">
-    {renderPokemonSearched()}
+      {renderPokemonSearched()}
     </section>
-    </>
+  </>
   );
 };
 
