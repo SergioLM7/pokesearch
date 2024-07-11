@@ -16,9 +16,6 @@ const Nav = () => {
         <li>
           <Link to="/new">New</Link>
         </li>
-        <li>
-          <Link to="/pokemon">PokemonDetail</Link>
-        </li>
       </ul>
     </nav>
   );

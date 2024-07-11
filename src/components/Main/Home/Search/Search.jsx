@@ -15,7 +15,7 @@ const Search = ({ setPokemonToSearch, setPokemonList }) => {
         name: 'Error 404',
         sprites: {
           other: {
-            dream_world: {
+            home: {
               front_default: errorImage
             }
           }
