@@ -18,16 +18,26 @@ export default Card;*/
 
 import React from "react";
 import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
+import { Link } from 'react-router-dom';
+
 
 const pokemonCard = ({
   pokemonName,
   pokemonID,
-  img
+  img,
+  types=[],
+  pokemonData
 }) => {
   const goodName = pokemonName[0].toUpperCase() + pokemonName.slice(1);
+  const type = types[0]?.type?.name || 'unknown';
+  const stats = JSON.stringify(pokemonData.stats);
+  const height = pokemonData.height;
+  const weight = pokemonData.weight;
 
-  return (
-   <Card shadow="sm" isPressable onPress={() => console.log("item pressed")}>
+  return (<Link
+    to={`/pokemon/${pokemonID}?name=${goodName}&image=${img}&typeOne=${type}&stats=${stats}&height=${height}&weight=${weight}`}
+  >
+   <Card shadow="sm" className={`${type} border-card`} isPressable onPress={() => console.log("item pressed")}>
           <CardBody className="overflow-visible p-0">
             <Image
               shadow="sm"
@@ -44,6 +54,7 @@ const pokemonCard = ({
             <p className="text-default-500">#{pokemonID}</p>
           </CardFooter>
         </Card>
+        </Link>
       );
 };
 

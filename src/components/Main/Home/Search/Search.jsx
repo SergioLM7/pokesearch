@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import errorImage from '../../../../assets/404pokemon.jpg';
+import { PokemonList } from '../../../../context/PokemonList';
 
 
-const Search = ({ setPokemonToSearch, setPokemonList }) => {
+const Search = ({ setPokemonToSearch }) => {
+
+  const { pokemonList, updatePokemonList } = useContext(PokemonList);
 
   const [timer, setTimer] = useState(null);
 
@@ -10,7 +13,7 @@ const Search = ({ setPokemonToSearch, setPokemonList }) => {
     e.preventDefault();
     const searchValue = e.target.pokemon.value;
     if (searchValue === '') {
-      setPokemonList([{
+      updatePokemonList([{
         id: 404,
         name: 'Error 404',
         sprites: {

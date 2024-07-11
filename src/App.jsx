@@ -6,26 +6,37 @@ import Main from './components/Main';
 
 //Importamos el contexto (con su variable global)
 import { PokemonSearched } from '/src/context/PokemonSearched';
+import { PokemonList } from '/src/context/PokemonList';
 
 
 const App = () => {
 
+  const [pokemonList, setPokemonList] = useState([]); // Para guardar los pokemon 
   const [pokemonSearched, setPokemonSearched] = useState([]); //Para guardar los pokemon buscados 
 
   const updatePokemonSearched = (newPokemon) => {
     setPokemonSearched(newPokemon);
-  }
+  };
+
+  const updatePokemonList = (newPokemon) => {
+    setPokemonList(newPokemon);
+  };
+
   const pokemonSearchedData = { pokemonSearched, updatePokemonSearched };
+  const pokemonListData = { pokemonList, updatePokemonList };
+
 
   return (
     <>
       <BrowserRouter>
         <Header />
-        <PokemonSearched.Provider value={pokemonSearchedData}>
-          <Main />
-        </PokemonSearched.Provider>
+        <PokemonList.Provider value={pokemonListData}>
+          <PokemonSearched.Provider value={pokemonSearchedData}>
+            <Main />
+          </PokemonSearched.Provider>
+        </PokemonList.Provider>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </>
   )
 };

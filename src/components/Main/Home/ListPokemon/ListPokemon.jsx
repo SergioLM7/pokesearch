@@ -2,14 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import Card from './Card';
 import { v4 as uuidv4 } from 'uuid';
-import {Vortex} from 'react-loader-spinner';
+import { Vortex } from 'react-loader-spinner';
 import errorImage from '../../../../assets/404pokemon.jpg';
-import { PokemonSearched } from '../../../../context/PokemonSearched'
+import { PokemonSearched } from '../../../../context/PokemonSearched';
+import { PokemonList } from '../../../../context/PokemonList';
 
 
-const ListPokemon = ({pokemonToSearch, pokemonList, setPokemonList}) => {
+
+const ListPokemon = ({ pokemonToSearch }) => {
   //const [pokemonSearched, setPokemonSearched] = useState([]); //Para guardar los pokemon buscados 
   const { pokemonSearched, updatePokemonSearched } = useContext(PokemonSearched);
+  const { pokemonList, updatePokemonList } = useContext(PokemonList);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -36,11 +39,11 @@ const ListPokemon = ({pokemonToSearch, pokemonList, setPokemonList}) => {
         const resolvedPokemonData = await Promise.all(pokemonData);
 
         //Filtro los null del segundo fetch
-        setPokemonList(resolvedPokemonData.filter(pokemon => pokemon !== null));
+        updatePokemonList(resolvedPokemonData.filter(pokemon => pokemon !== null));
         console.log(pokemonList);
       } catch (e) {
         console.error('Error fetching the list of pokemons', e);
-        setPokemonList([]);
+        updatePokemonList([]);
       }
     };
     fetchPokemon();
@@ -54,20 +57,23 @@ const ListPokemon = ({pokemonToSearch, pokemonList, setPokemonList}) => {
         pokemonName={item.name}
         pokemonID={item.id}
         img={item.sprites.other.home.front_default}
-        types = {item.types}
+        types={item.types}
+        pokemonData={item}
       />
     ));
 
-    //Renderizado de los pokemon que están setPokemonSearched 
-  const renderPokemonSearched = () =>
+  //Renderizado de los pokemon que están setPokemonSearched 
+  /*const renderPokemonSearched = () =>
     pokemonSearched.map((item, i) => (
       <Card
         key={uuidv4()}
         pokemonName={item.name}
         pokemonID={item.id}
         img={item.sprites.other.home.front_default}
+        types = {item.types}
+
       />
-    ));
+    ));*/
 
   //UseEffect para buscar el pokemon del input
   useEffect(() => {
@@ -77,62 +83,60 @@ const ListPokemon = ({pokemonToSearch, pokemonList, setPokemonList}) => {
       console.log(pokemonInArray)
 
       if (pokemonInArray) {
-        setPokemonList([pokemonInArray])
+        updatePokemonList([pokemonInArray])
+        const verifyPokemon = pokemonSearched.some(pokemon => pokemon.name === pokemonInArray.name)
+        console.log(verifyPokemon);
+
+        if (verifyPokemon === false) {
+          updatePokemonSearched([...pokemonSearched, pokemonInArray]);
+          console.log(pokemonSearched);
+        }
       } else {
-      const searchPokemon = async () => {
-        try {
-          const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonToSearch}`);
-          const pokemonData = res.data;
-          console.log(pokemonData);
-          setPokemonList([pokemonData]);
-          const verifyPokemon = pokemonSearched.some(pokemon => pokemon.name === pokemonData.name)
-          console.log(verifyPokemon);
-          
-          if (verifyPokemon === false) {
-            updatePokemonSearched([...pokemonSearched, pokemonData]);
-            console.log(pokemonSearched);
-          }
-          
-        } catch (e) {
-          console.error('Error fetching that pokemon', e);
-          setPokemonList([{
-            id: 404,
-            name: 'Error 404',
-            sprites: {
-              other: {
-                home: {
-                  front_default: errorImage
+        const searchPokemon = async () => {
+          try {
+            const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonToSearch}`);
+            const pokemonData = res.data;
+            console.log(pokemonData);
+            updatePokemonList([pokemonData]);
+            const verifyPokemon = pokemonSearched.some(pokemon => pokemon.name === pokemonData.name)
+            console.log(verifyPokemon);
+
+            if (verifyPokemon === false) {
+              updatePokemonSearched([...pokemonSearched, pokemonData]);
+              console.log(pokemonSearched);
+            }
+
+          } catch (e) {
+            console.error('Error fetching that pokemon', e);
+            updatePokemonList([{
+              id: 404,
+              name: 'Error 404',
+              sprites: {
+                other: {
+                  home: {
+                    front_default: errorImage
+                  }
                 }
               }
-            }
-          }]);
+            }]);
+          }
         }
-      }
-      searchPokemon();
-    };
-  }
+        searchPokemon();
+      };
+    }
   }, [pokemonToSearch]);
 
   return <article className="pokemon-cards">
-      {pokemonList.length!=0?renderPokemons() : <Vortex
-  visible={true}
-  height="200"
-  width="200"
-  ariaLabel="vortex-loading"
-  wrapperStyle={{}}
-  wrapperClass="vortex-wrapper"
-  colors={['blue', 'yellow', 'red', 'blue', 'yellow', 'red']}
-  />}
-  {pokemonSearched.length!=0?renderPokemonSearched() : <Vortex
-  visible={true}
-  height="200"
-  width="200"
-  ariaLabel="vortex-loading"
-  wrapperStyle={{}}
-  wrapperClass="vortex-wrapper"
-  colors={['blue', 'yellow', 'red', 'blue', 'yellow', 'red']}
-  />}
-    </article>;
+    {pokemonList.length != 0 ? renderPokemons() : <Vortex
+      visible={true}
+      height="200"
+      width="200"
+      ariaLabel="vortex-loading"
+      wrapperStyle={{}}
+      wrapperClass="vortex-wrapper"
+      colors={['blue', 'yellow', 'red', 'blue', 'yellow', 'red']}
+    />}
+  </article>;
 };
 
 export default ListPokemon;
