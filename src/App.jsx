@@ -3,6 +3,8 @@ import { BrowserRouter } from 'react-router-dom'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Main from './components/Main';
+import '/src/fonts/SugarBomb-EapEW.ttf'
+
 
 //Importamos el contexto (con su variable global)
 import { PokemonSearched } from '/src/context/PokemonSearched';
@@ -35,8 +37,8 @@ const App = () => {
             <Main />
           </PokemonSearched.Provider>
         </PokemonList.Provider>
-        <Footer />
       </BrowserRouter>
+      <Footer />
     </>
   )
 };

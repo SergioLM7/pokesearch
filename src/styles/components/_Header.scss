@@ -1,0 +1,103 @@
+header {
+    font-family: "SugarBomb";
+    background-image: url("../../assets/bannerpokemon.jpg");
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+  
+    h1 {
+      margin: 0;
+      color: black;
+      font-size: 2rem;
+    }
+  
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+  
+      &:focus {
+        outline: none;
+      }
+    }
+  
+    nav {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        li {
+          margin: 10px 0;
+  
+          a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+  
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  
+    // Media queries
+    @media (min-width: 600px) {
+      .menu-toggle {
+        display: none;
+      }
+  
+      nav {
+        position: static;
+        width: 100%;
+  
+        ul {
+          flex-direction: row;
+          justify-content: space-around;
+  
+          li {
+            margin: 0;
+  
+            a {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  
+    @media (max-width: 599px) {
+      .menu-toggle {
+        display: block;
+      }
+  
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; // Adjust based on your header height
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+  
+        ul {
+          flex-direction: column;
+        }
+  
+        &.open {
+          display: flex;
+        }
+      }
+    }
+  }

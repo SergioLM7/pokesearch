@@ -1,15 +1,17 @@
 @import '../utils/mixins.scss';
 
 .card-detail {
-    width: 500px;
+    font-family:"PokemonSolidNormal";
+    width: 90%;
+    max-width: 300px;
     border-radius: 10px;
     border-width: 3px;
-    @include shadow (white);
+    border: solid 10px white;
+    @include shadow (rgb(238, 2, 2));
 
-  }
-  
-  .pokemon-data {
-    gap:5px;
+    &>p {
+        gap: 10px;
+    }
   }
 
 .pokemon-detail {

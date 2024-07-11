@@ -3,3 +3,14 @@
     -moz-box-shadow: 7px 6px 5px 0px $shadow-color;
     box-shadow: 7px 6px 5px 0px $shadow-color;
 }
+
+@mixin column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,21 +1,3 @@
-/*import React from "react";
-
-const Card = ({
-  pokemonName,
-  pokemonID,
-  img
-}) => {
-  const goodName = pokemonName[0].toUpperCase() + pokemonName.slice(1);
-
-  return <article className="card" id={pokemonName}>
-    <h3>Name: {goodName}</h3>
-    <p>ID: #{pokemonID}</p>
-    <img src={img} alt={pokemonName} className="picture_item" />
-  </article>
-};
-
-export default Card;*/
-
 import React from "react";
 import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
 import { Link } from 'react-router-dom';
@@ -37,7 +19,7 @@ const pokemonCard = ({
   return (<Link
     to={`/pokemon/${pokemonID}?name=${goodName}&image=${img}&typeOne=${type}&stats=${stats}&height=${height}&weight=${weight}`}
   >
-   <Card shadow="sm" className={`${type} border-card`} isPressable onPress={() => console.log("item pressed")}>
+   <Card shadow="sm" className={`${type} card`} isPressable onPress={() => console.log("item pressed")}>
           <CardBody className="overflow-visible p-0">
             <Image
               shadow="sm"
@@ -59,3 +41,23 @@ const pokemonCard = ({
 };
 
 export default pokemonCard;
+
+
+//Versión sin librería
+/*import React from "react";
+
+const Card = ({
+  pokemonName,
+  pokemonID,
+  img
+}) => {
+  const goodName = pokemonName[0].toUpperCase() + pokemonName.slice(1);
+
+  return <article className="card" id={pokemonName}>
+    <h3>Name: {goodName}</h3>
+    <p>ID: #{pokemonID}</p>
+    <img src={img} alt={pokemonName} className="picture_item" />
+  </article>
+};
+
+export default Card;*/

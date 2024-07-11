@@ -1,0 +1,17 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.footer-box {
+    font-family: "SugarBomb";
+    min-height: 10vh;
+    background-color: $green;
+    @include centered-content;
+    color: white;
+    font-weight: bold;
+    @include column;
+    gap: 0.5vh;
+
+    &>p {
+        align-items: center;
+    }
+}

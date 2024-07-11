@@ -1,0 +1,93 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+
+  .container-new {
+    font-family: "SugarBomb";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    @include shadow (rgb(187, 47, 47));
+
+  
+    .form {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+  
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+  
+      input, select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+  
+      input[type="submit"] {
+        background-color: $light-blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+  
+        &:hover {
+          background-color: $dark-blue;
+        }
+      }
+  
+      p {
+        color: red;
+        margin: 0 0 12px;
+        font-size: 0.9rem;
+        font-weight: bolder;
+      }
+    }
+  
+    .back-home {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      align-items: center;
+
+      button {
+        background-color: $light-blue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        align-self: center;
+  
+        &:hover {
+          background-color: $dark-blue;
+        }
+      }
+    }
+  }
+  
+  //Media queries
+  @media (min-width: 600px) {
+    .container-new {
+      padding: 40px;
+  
+      .form {
+        padding: 30px;
+      }
+    }
+  }
+  

@@ -10,7 +10,7 @@ import { PokemonList } from '../../../../context/PokemonList';
 
 
 const ListPokemon = ({ pokemonToSearch }) => {
-  //const [pokemonSearched, setPokemonSearched] = useState([]); //Para guardar los pokemon buscados 
+  
   const { pokemonSearched, updatePokemonSearched } = useContext(PokemonSearched);
   const { pokemonList, updatePokemonList } = useContext(PokemonList);
 

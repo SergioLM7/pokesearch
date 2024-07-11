@@ -3,9 +3,9 @@ import Nav from "./Nav";
 
 const Header = () => {
   return <header>
-    <h1>PokeSearch</h1>
+     <h1>PokeSearch</h1>
     <Nav/>
-    </header>;
+    </header>
 };
 
 export default Header;

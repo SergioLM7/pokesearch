@@ -7,7 +7,6 @@ import Details from "./Details/Details";
 
 const Main = () => {
   return <><main className="container">
-    <p>Esto es el MAIN</p>
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/new' element={<New />} />

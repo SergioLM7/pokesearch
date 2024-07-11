@@ -1,4 +1,10 @@
 .container {
     max-width: 1800px;
     margin: 0 auto;
+    @include column;
+    align-items: center;
+    min-height: 85vh; //85% el alto de la pantalla
+    padding: 16px 0px;
 }
+
+

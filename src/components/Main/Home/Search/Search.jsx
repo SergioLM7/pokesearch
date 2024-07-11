@@ -46,7 +46,7 @@ const Search = ({ setPokemonToSearch }) => {
     <form onSubmit={handleSubmit} className="form">
       <label htmlFor="pokemon">Search by pokemon's name:</label>
       <input name="pokemon" id="pokemon" onChange={handleChange} />
-      <button>Search</button>
+      <button className="button-search">Search</button>
     </form>
   </article>
 };
