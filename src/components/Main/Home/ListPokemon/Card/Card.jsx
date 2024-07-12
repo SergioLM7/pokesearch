@@ -17,7 +17,7 @@ const pokemonCard = ({
   const weight = pokemonData.weight;
 
   return (<Link
-    to={`https://pokesearchslm.netlify.app/pokemon/${pokemonID}?name=${goodName}&image=${img}&typeOne=${type}&stats=${stats}&height=${height}&weight=${weight}`}
+    to={`/pokemon/${pokemonID}?name=${goodName}&image=${img}&typeOne=${type}&stats=${stats}&height=${height}&weight=${weight}`}
   >
    <Card shadow="sm" className={`${type} card`} isPressable onPress={() => console.log("item pressed")}>
           <CardBody className="overflow-visible p-0">

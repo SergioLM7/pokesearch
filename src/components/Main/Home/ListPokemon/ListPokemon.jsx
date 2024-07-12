@@ -87,10 +87,10 @@ const ListPokemon = ({ pokemonToSearch }) => {
         const verifyPokemon = pokemonSearched.some(pokemon => pokemon.name === pokemonInArray.name)
         console.log(verifyPokemon);
 
-        if (verifyPokemon === false) {
+       /* if (verifyPokemon === false) {
           updatePokemonSearched([...pokemonSearched, pokemonInArray]);
           console.log(pokemonSearched);
-        }
+        }*/
       } else {
         const searchPokemon = async () => {
           try {

@@ -42,9 +42,9 @@ const Details = () => {
       </CardBody>
       <CardFooter className="text-small justify-between">
         <b>{name}</b>
-        <p className="text-default-500 pokemon-data">#{id}</p>
-        <p className="text-default-500 pokemon-data">{height / 10}m</p>
-        <p className="text-default-500 pokemon-data">{weight / 10}kg</p>
+        <p className="text-default-500 pokemon-data pokemon-data">#{id}</p>
+        <p className="text-default-500 pokemon-data pokemon-data">Height: {height / 10}m</p>
+        <p className="text-default-500 pokemon-data pokemon-data">Weight: {weight / 10}kg</p>
         <p className="pokemon-data">{statsNames[0]}</p><progress value={statsValues[0]} max={255} />
         <p className="pokemon-data">{statsNames[1]}</p><progress value={statsValues[1]} max={255} />
         <p className="pokemon-data">{statsNames[2]}</p><progress value={statsValues[2]} max={255} />
