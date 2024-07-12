@@ -58,7 +58,11 @@ Pokesearch allows you to search your favorites Pokemon by their name or ID since
 
 **Searching for any Pokemon by its name/ID**
 <br/>
-![](https://github.com/SergioLM7/pokesearch/blob/main/src/assets/ejemplo1.gif)
+![](https://github.com/SergioLM7/pokesearch/blob/main/src/assets/search.gif)
+
+**Detailed view**
+<br/>
+![](https://github.com/SergioLM7/pokesearch/blob/main/src/assets/details.gif)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
