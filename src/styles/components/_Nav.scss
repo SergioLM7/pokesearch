@@ -6,21 +6,22 @@
 
 
     &>label {
-        display: flex;
-        justify-content: center;
+        display: none;
     }
 
     &>ul {
-        position: absolute;
         left: 0;
         background-color: $light-blue;
         width: 100%;
         text-align: center;
-        list-style-type: none;
-        display: none;
+        position: static;
+            display: flex;
+            justify-content: space-around;
 
         &>li {
             padding: 16px;
+            color:white;
+
 
 
             &:hover {
@@ -32,23 +33,6 @@
                     height: 100%;
                     width: 100%;
                 }
-            }
-        }
-    }
-}
-
-@media only screen and (min-width:$ipad-breakpoint) {
-    .nav {
-        &>label {
-            display: none;
-        }
-
-        &>ul {
-            position: static;
-            display: flex;
-            justify-content: space-around;
-            &>li {
-                color:white;
             }
         }
     }

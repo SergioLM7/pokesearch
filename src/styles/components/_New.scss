@@ -8,9 +8,11 @@
     flex-direction: column;
     justify-content: center;
     border-radius: 10px;
+    width: 50vw;
     align-items: center;
     background-color: #f2f2f2;
     padding: 20px;
+    gap: 20px;
     @include shadow (rgb(187, 47, 47));
 
   
@@ -19,7 +21,6 @@
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
       max-width: 500px;
       box-sizing: border-box;
   
@@ -30,12 +31,14 @@
       }
   
       input, select {
+        font-family:"PokemonSolidNormal";
         width: 100%;
         padding: 8px;
         margin-bottom: 12px;
         border: 1px solid #cccccc;
         border-radius: 4px;
         box-sizing: border-box;
+        color: black;
       }
   
       input[type="submit"] {
@@ -80,6 +83,43 @@
     }
   }
   
+  .pokemons-searched {
+    font-family: "PokemonSolidNormal";
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $phone-breakpoint) {
+        flex-direction: row;
+        justify-content: center;
+    
+        .card {
+          flex: 0 1 calc(50% - 20px); //dos cards por fila
+        }
+      }
+    
+      @media (min-width: $ipad-breakpoint) {
+          flex-direction: row;
+          justify-content: center;
+      
+          .card {
+              flex: 0 1 calc(33.33% - 20px); //tres cards por fila
+          }
+        }
+    
+      @media (min-width: $desktop-breakpoint) {
+        flex-direction: row;
+        justify-content: center;
+    
+        .card {
+          flex: 0 1 calc(33.33% - 20px); //tres cards por fila
+        }
+      }
+  }
+
   //Media queries
   @media (min-width: 600px) {
     .container-new {
