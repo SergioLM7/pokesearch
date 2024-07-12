@@ -1,6 +1,6 @@
 <a id="readme-top"></a>
-# 🌤️ Pokesearch
-<a href="https://weatherappslm.netlify.app/" target="_blank" align="center"/> <img src="./src/assets/weather-background-header.jpg" alt="banner readme"/></a> 
+# Pokesearch
+<a href="https://pokesearchslm.netlify.app/" target="_blank" align="center"/> <img src="./src/assets/bannerpokemon.jpg" alt="banner readme"/></a> 
 
 
 <!-- TABLE OF CONTENTS -->
@@ -33,7 +33,7 @@
 
 **Link**: https://pokesearchslm.netlify.app/
 
-Weather App allows you to see the weather forecast for the next five days (with data details every three hours) for the city of your choice. The landing page will ask you to geolocate to show you the forecast for your city, otherwise it will show a default forecast.
+Pokesearch allows you to search your favorites Pokemon by their name or ID since the first generation to the last one. You can also see their detailed stats and , furthermore, create your own Pokemons. Catch 'em all!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
