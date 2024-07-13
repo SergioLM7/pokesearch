@@ -12,6 +12,9 @@
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
+      <ul>
+        <li><a href="#project-structure">Project Structure</a></li>
+      </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li>
@@ -33,7 +36,7 @@
 
 **Link**: https://pokesearchslm.netlify.app/
 
-Pokesearch allows you to search your favorites Pokemon by their name or ID since the first generation to the last one. You can also see their detailed stats and , furthermore, create your own Pokemons. Catch 'em all!
+Pokesearch allows you to search your favorites Pokemon by their name or ID since the first generation to the last one. You can also see their detailed stats and, furthermore, create your own Pokemons. Catch 'em all!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -49,22 +52,60 @@ Pokesearch allows you to search your favorites Pokemon by their name or ID since
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
+### Project Structure
+
+```sh
+pokesearch/
+│
+├── public/
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── Footer/
+│   │   ├── Header/
+│   │   │   └── Nav/
+│   │   └── Main/
+│   │       ├── Home/
+│   │       │   ├── ListPokemon/
+│   │       │   │   └── Card/
+│   │       │   └── Search/
+│   │       ├── Details/
+│   │       └── New/
+│   ├── context/
+│   ├── fonts/
+│   └── styles/
+│       ├── components/
+│       ├── utils/
+│       └── views/
+
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Usage
 
 **Landing page**
+<br/>
+  -Pokesearch app shows the first 50 pokemon from PokeAPI in card format.
 <br/>
 ![](https://github.com/SergioLM7/pokesearch/blob/main/src/assets/landing.gif)
 
 **Searching for any Pokemon by its name/ID**
 <br/>
+  -You can search any Pokemon of every generation by its name or ID (uppercase sensitive, please, search in lowercase).
+<br/>
 ![](https://github.com/SergioLM7/pokesearch/blob/main/src/assets/search.gif)
 
 **Detailed view**
 <br/>
+  -Click on each pokemon to see more details from it.
+<br/>
 ![](https://github.com/SergioLM7/pokesearch/blob/main/src/assets/details.gif)
 
 **Create new Pokemon**
+<br/>
+  -You can create your own pokemon or even use a picture of yourself as a special pokemon. It will be showed with your searches after yhe form.
 <br/>
 ![](https://github.com/SergioLM7/pokesearch/blob/main/src/assets/new.gif)
 
