@@ -19,6 +19,14 @@
         cursor: pointer;
     }
 
+    .card:hover{
+      box-shadow: 0px 0px;
+      .pokemon-image {
+        height: 250px;
+        width: 250px;
+      }
+    }
+
   
     @media (min-width: $phone-breakpoint) {
       flex-direction: row;

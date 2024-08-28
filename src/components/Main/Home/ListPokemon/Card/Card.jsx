@@ -19,7 +19,7 @@ const pokemonCard = ({
   return (<Link
     to={`/pokemon/${pokemonID}?name=${goodName}&image=${img}&typeOne=${type}&stats=${stats}&height=${height}&weight=${weight}`}
   >
-   <Card shadow="sm" className={`${type} card`} isPressable onPress={() => console.log("item pressed")}>
+   <Card shadow="sm" className={`${type} card`} /*isPressable onPress={() => console.log("item pressed")}*/>
           <CardBody className="overflow-visible p-0">
             <Image
               shadow="sm"
@@ -27,7 +27,7 @@ const pokemonCard = ({
               width="200"
               height="200"
               alt={goodName}
-              className="w-full object-cover h-[140px]"
+              className="w-full object-cover h-[140px] pokemon-image"
               src={img}
             />
           </CardBody>
