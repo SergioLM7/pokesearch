@@ -31,7 +31,7 @@ const Search = ({ setPokemonToSearch }) => {
   };
 
   const handleChange = (e) => {
-    const searchValue = e.target.value.trim();
+    const searchValue = e.target.value.trim().toLowerCase();
     if (timer) {
       clearTimeout(timer);
     }
