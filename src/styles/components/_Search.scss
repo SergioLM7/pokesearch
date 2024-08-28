@@ -1,35 +1,49 @@
 .form-section {
-    font-family: "SugarBomb";
+  font-family: "SugarBomb";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 17px;
+
+  .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 17px;
+
 
     label {
-        display: flex;
-        margin-bottom: 8px;
-        font-weight: bold;
-      }
+      display: flex;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
 
-      input {
-        margin-bottom: 12px;
-        border: 1px solid #cccccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        margin: 4px;
-      }
+    input {
+      margin-bottom: 12px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin: 4px;
+    }
 
-      .button-search {
-        background-color: $light-blue;
-        color: white;
-        cursor: pointer;
-        font-size: 15px;
-        border-radius: 4px;
-        padding: 4px;
-  
-        &:hover {
-          background-color: $dark-blue;
-        }
+    .button-search {
+      background-color: $light-blue;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      border-radius: 4px;
+      padding: 4px;
+
+      &:hover {
+        background-color: $dark-blue;
       }
+    }
+  }
+}
+
+@media (min-width: 370px) {
+  .form {
+    display: block;
+  }
 }

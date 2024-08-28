@@ -1,6 +1,17 @@
 @import '../utils/mixins.scss';
+@import '../utils/variables.scss';
 
-.card-detail {
+
+.pokemon-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-detail {
     font-family:"PokemonSolidNormal";
     width: 90%;
     max-width: 300px;
@@ -14,31 +25,22 @@
     }
   }
 
-.pokemon-detail {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  
-    @media (min-width: 600px) and (max-width: 899px) {
-      flex-direction: row;
-      justify-content: center;
-  
-      .card-detail {
-        flex: 0 1 calc(50% - 20px); //dos cards por fila
-        max-width: 450px;
-      }
-    }
-  
-    @media (min-width: 900px) {
-      flex-direction: row;
-      justify-content: center;
-  
-      .card-detail {
-        flex: 0 1 calc(33.33% - 20px); //tres cards por fila
-        max-width: 450px;
-      }
-    }
-  }
+  @media (min-width: $phone-breakpoint) and (max-width: 899px) {
+    /* flex-direction: row;
+     justify-content: center;*/
+ 
+     .card-detail {
+       /*flex: 0 1 calc(50% - 20px); //dos cards por fila*/
+       max-width: 450px;
+     }
+   }
+ 
+   @media (min-width: 900px) {
+    /* flex-direction: row;
+     justify-content: center;*/
+ 
+     .card-detail {
+       /*flex: 0 1 calc(33.33% - 20px); //tres cards por fila*/
+       max-width: 450px;
+     }
+   }
