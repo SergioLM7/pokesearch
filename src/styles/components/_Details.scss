@@ -18,7 +18,6 @@
     align-items: center;
     font-family:"PokemonSolidNormal";
     width: 90%;
-    width: 300px;
     border-radius: 10px;
     border-width: 3px;
     border: solid 10px white;
@@ -30,7 +29,7 @@
   }
 
   .back-home {
-
+    font-family: "SugarBomb";
     button {
       background-color: $light-blue;
       color: white;
