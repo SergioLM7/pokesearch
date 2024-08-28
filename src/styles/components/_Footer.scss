@@ -10,6 +10,7 @@
     font-weight: bold;
     @include column;
     gap: 0.5vh;
+    padding: 7px 0px 7px 0px;
 
     &>p {
         align-items: center;

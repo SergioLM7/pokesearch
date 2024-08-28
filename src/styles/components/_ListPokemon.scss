@@ -21,7 +21,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 10px;
+
+        .footer-data {
+          @include column;
+          @include centered-content;
+          margin-bottom: 10px;
+        }
     }
 
     .card:hover{

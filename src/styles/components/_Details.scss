@@ -16,7 +16,6 @@
   @include centered-content;
   font-family: "PokemonSolidNormal";
   width: 90%;
-  margin-bottom: 10px;
   border-radius: 10px;
   border-width: 3px;
   border: solid 10px white;
@@ -25,6 +24,7 @@
   .footer-data {
     @include column;
     @include centered-content;
+    margin-bottom: 10px;
   }
 
   &>p {
