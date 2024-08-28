@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { useLocation, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Details = () => {
@@ -28,6 +29,8 @@ const Details = () => {
   }
 
   return (<><article className="pokemon-detail">
+    <Link to={`/`}><button>Back Home</button></Link>
+
     <Card shadow="sm" className={`${typeOne} card-detail`} /*isPressable onPress={() => console.log("item pressed")}*/>
       <CardBody className="overflow-visible p-0">
         <Image

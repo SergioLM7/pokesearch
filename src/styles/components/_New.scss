@@ -62,9 +62,12 @@
     }
   
     .back-home {
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
       margin-bottom: 20px;
       margin-top: 20px;
-      align-items: center;
 
       button {
         background-color: $light-blue;
