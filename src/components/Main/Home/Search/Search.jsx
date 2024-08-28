@@ -11,7 +11,7 @@ const Search = ({ setPokemonToSearch }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const searchValue = e.target.pokemon.value;
+    const searchValue = e.target.pokemon.value.toLowerCase();
     if (searchValue === '') {
       updatePokemonList([{
         id: 404,
