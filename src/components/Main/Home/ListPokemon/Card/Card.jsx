@@ -31,7 +31,7 @@ const pokemonCard = ({
               src={img}
             />
           </CardBody>
-          <CardFooter className="text-small justify-between">
+          <CardFooter className="text-small justify-between footer-data">
             <b>{goodName}</b>
             <p className="text-default-500">#{pokemonID}</p>
           </CardFooter>

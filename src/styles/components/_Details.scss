@@ -3,65 +3,65 @@
 
 
 .pokemon-detail {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-detail {
+  @include column;
+  @include centered-content;
+  font-family: "PokemonSolidNormal";
+  width: 90%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-width: 3px;
+  border: solid 10px white;
+  @include shadow (rgb(238, 2, 2));
+
+  .footer-data {
+    @include column;
+    @include centered-content;
   }
+
+  &>p {
+    gap: 10px;
+  }
+}
+
+.back-home {
+  font-family: "SugarBomb";
+
+  button {
+    background-color: $light-blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    align-self: center;
+
+    &:hover {
+      background-color: $dark-blue;
+    }
+  }
+}
+
+@media (min-width: $phone-breakpoint) {
+  /* flex-direction: row;
+     justify-content: center;*/
 
   .card-detail {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    font-family:"PokemonSolidNormal";
-    width: 90%;
-    border-radius: 10px;
-    border-width: 3px;
-    border: solid 10px white;
-    @include shadow (rgb(238, 2, 2));
+    /*flex: 0 1 calc(50% - 20px); //dos cards por fila*/
+    width: 400px;
 
-    &>p {
-        gap: 10px;
+    .detailed-image {
+      height: 300px;
+      width: 300px;
     }
   }
-
-  .back-home {
-    font-family: "SugarBomb";
-    button {
-      background-color: $light-blue;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-      align-self: center;
-
-      &:hover {
-        background-color: $dark-blue;
-      }
-    }
-  }
-
-  @media (min-width: $phone-breakpoint) and (max-width: 899px) {
-    /* flex-direction: row;
-     justify-content: center;*/
- 
-     .card-detail {
-       /*flex: 0 1 calc(50% - 20px); //dos cards por fila*/
-       width: 400px;
-     }
-   }
- 
-   @media (min-width: 900px) {
-    /* flex-direction: row;
-     justify-content: center;*/
- 
-     .card-detail {
-       /*flex: 0 1 calc(33.33% - 20px); //tres cards por fila*/
-       width: 400px;
-     }
-   }
+}
