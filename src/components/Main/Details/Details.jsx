@@ -29,7 +29,9 @@ const Details = () => {
   }
 
   return (<><article className="pokemon-detail">
-    <Link to={`/`}><button>Back Home</button></Link>
+    <div className="back-home">
+      <Link to={`/`}><button>Back Home</button></Link>
+    </div>
 
     <Card shadow="sm" className={`${typeOne} card-detail`} /*isPressable onPress={() => console.log("item pressed")}*/>
       <CardBody className="overflow-visible p-0">

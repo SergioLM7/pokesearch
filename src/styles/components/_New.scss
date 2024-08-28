@@ -2,135 +2,134 @@
 @import '../utils/mixins';
 
 
-  .container-new {
-    font-family: "SugarBomb";
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
-    width: 50vw;
-    align-items: center;
-    background-color: #f2f2f2;
+.container-new {
+  font-family: "SugarBomb";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  width: 50vw;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+  gap: 20px;
+  @include shadow (rgb(187, 47, 47));
+
+
+  .form {
+    background-color: #ffffff;
     padding: 20px;
-    gap: 20px;
-    @include shadow (rgb(187, 47, 47));
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    box-sizing: border-box;
 
-  
-    .form {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      font-family: "PokemonSolidNormal";
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
       box-sizing: border-box;
-  
-      label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-      }
-  
-      input, select {
-        font-family:"PokemonSolidNormal";
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 12px;
-        border: 1px solid #cccccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        color: black;
-      }
-  
-      input[type="submit"] {
-        background-color: $light-blue;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-  
-        &:hover {
-          background-color: $dark-blue;
-        }
-      }
-  
-      p {
-        color: red;
-        margin: 0 0 12px;
-        font-size: 0.9rem;
-        font-weight: bolder;
+      color: black;
+    }
+
+    input[type="submit"] {
+      background-color: $light-blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+
+      &:hover {
+        background-color: $dark-blue;
       }
     }
-  
-    .back-home {
-      display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-      margin-bottom: 20px;
-      margin-top: 20px;
 
-      button {
-        background-color: $light-blue;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-        align-self: center;
-  
-        &:hover {
-          background-color: $dark-blue;
-        }
-      }
+    p {
+      color: red;
+      margin: 0 0 12px;
+      font-size: 0.9rem;
+      font-weight: bolder;
     }
   }
-  
-  .pokemons-searched {
-    font-family: "PokemonSolidNormal";
+
+  .back-home {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
 
-    @media (min-width: $phone-breakpoint) {
-        flex-direction: row;
-        justify-content: center;
-    
-        .card {
-          flex: 0 1 calc(50% - 20px); //dos cards por fila
-        }
-      }
-    
-      @media (min-width: $ipad-breakpoint) {
-          flex-direction: row;
-          justify-content: center;
-      
-          .card {
-              flex: 0 1 calc(33.33% - 20px); //tres cards por fila
-          }
-        }
-    
-      @media (min-width: $desktop-breakpoint) {
-        flex-direction: row;
-        justify-content: center;
-    
-        .card {
-          flex: 0 1 calc(33.33% - 20px); //tres cards por fila
-        }
-      }
-  }
+    button {
+      background-color: $light-blue;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      align-self: center;
 
-  //Media queries
-  @media (min-width: 600px) {
-    .container-new {
-      padding: 40px;
-  
-      .form {
-        padding: 30px;
+      &:hover {
+        background-color: $dark-blue;
       }
     }
   }
-  
+}
+
+.pokemons-searched {
+  font-family: "PokemonSolidNormal";
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: $phone-breakpoint) {
+    flex-direction: row;
+    justify-content: center;
+
+    .card {
+      flex: 0 1 calc(50% - 20px); //dos cards por fila
+    }
+  }
+
+  @media (min-width: $ipad-breakpoint) {
+    flex-direction: row;
+    justify-content: center;
+
+    .card {
+      flex: 0 1 calc(33.33% - 20px); //tres cards por fila
+    }
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    flex-direction: row;
+    justify-content: center;
+
+    .card {
+      flex: 0 1 calc(33.33% - 20px); //tres cards por fila
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .container-new {
+    padding: 40px;
+
+    .form {
+      padding: 30px;
+    }
+  }
+}
