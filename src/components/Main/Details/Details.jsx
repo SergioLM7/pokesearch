@@ -28,7 +28,7 @@ const Details = () => {
   }
 
   return (<><article className="pokemon-detail">
-    <Card shadow="sm" className={`${typeOne} card-detail`} isPressable onPress={() => console.log("item pressed")}>
+    <Card shadow="sm" className={`${typeOne} card-detail`} /*isPressable onPress={() => console.log("item pressed")}*/>
       <CardBody className="overflow-visible p-0">
         <Image
           shadow="sm"

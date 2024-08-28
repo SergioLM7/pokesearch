@@ -21,7 +21,6 @@ const New = () => {
     formState: { errors }
   } = useForm();
 
-  // your form submit function which will invoke after successful validation
   const onSubmit = ({ id, img, name, weight, height, typeOne, typeTwo }) => {
     const newPokemon = {
       id: id,

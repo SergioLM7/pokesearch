@@ -28,6 +28,7 @@
   
       .card-detail {
         flex: 0 1 calc(50% - 20px); //dos cards por fila
+        max-width: 450px;
       }
     }
   
@@ -37,6 +38,7 @@
   
       .card-detail {
         flex: 0 1 calc(33.33% - 20px); //tres cards por fila
+        max-width: 450px;
       }
     }
   }
